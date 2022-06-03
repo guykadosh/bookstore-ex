@@ -1,0 +1,52 @@
+.books-container {
+  min-height: 30rem;
+}
+
+td {
+  padding: 0.5rem;
+  border: 1px solid #e9ecef;
+}
+
+tr:nth-child(even) {
+  background-color: #e9ecef;
+}
+
+.th-sorter {
+  cursor: pointer;
+}
+
+.th-sorter:hover {
+  background-color: #ced4da;
+}
+
+.th-sorter.title {
+  min-width: 32rem;
+}
+
+.th-sorter.price {
+  min-width: 10rem;
+}
+
+th.id {
+  min-width: 6rem;
+}
+
+.btns-paging {
+  display: flex;
+  justify-content: space-between;
+  width: 65rem;
+}
+
+.btns-pages {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-page {
+  padding: 0 0.8rem;
+}
+
+.selected-page {
+  background-color: #b3d3ea;
+}

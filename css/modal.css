@@ -1,0 +1,79 @@
+.modal {
+  position: fixed;
+  right: 0;
+  top: 20%;
+  width: 50rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  background-color: #dbe4ff;
+  padding: 3.6rem;
+  transform: translateX(100%);
+  transition: transform 0.5s;
+  box-shadow: 4px 5px 19px 0px rgba(0, 0, 0, 0.59);
+}
+
+.desc {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.btn-close {
+  width: 20%;
+  align-self: center;
+}
+
+.rate {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 0.8rem;
+  border: 1px solid #bac8ff;
+  width: 9rem;
+}
+
+.book-rate {
+  display: inline-block;
+  padding: 0.5rem;
+  border-left-color: #edf2ff;
+  /* border: 1px solid #bac8ff; */
+  margin: 0;
+  width: 3rem;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.btn-rate {
+  padding: 0.5rem;
+  height: 3rem;
+  width: 3rem;
+  font-size: 1.8rem;
+  border: none;
+}
+
+.input-modal {
+  position: fixed;
+  top: 0;
+  left: 40%;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  padding: 3.6rem 1.6rem;
+  gap: 1.6rem;
+  background-color: #ced4da;
+  transition: transform 0.5s;
+  box-shadow: 4px 5px 19px 0px rgba(0, 0, 0, 0.29);
+  border-radius: 9px;
+  transform: translateY(-110%);
+}
+
+.form-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.open {
+  transform: translate(0%);
+}

@@ -1,0 +1,254 @@
+/* buttons */
+
+.btn {
+  background-color: #e1ecf4;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+  color: #39739d;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, 'Segoe UI', 'Liberation Sans',
+    sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 0.5rem 0.3rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #b3d3ea;
+  color: #2c5777;
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+.btn:active {
+  background-color: #a0c7e4;
+  box-shadow: none;
+  color: #2c5777;
+}
+
+.btn-delete {
+  background-color: #ffe3e3;
+  border: 1px solid #ff8787;
+  color: #e03131;
+}
+
+.btn-delete:hover,
+.btn-delete:focus {
+  background-color: #ffe8cc;
+  color: #c92a2a;
+}
+
+.btn-delete:focus {
+  box-shadow: 0 0 0 4px rgba(255, 0, 47, 0.15);
+}
+
+.btn-delete:active {
+  background-color: #ffe3e3;
+  color: #e03131;
+}
+
+.btn-update {
+  background-color: #fff4e6;
+  border: 1px solid #ff922b;
+  color: #f76707;
+}
+
+.btn-update:hover,
+.btn-update:focus {
+  background-color: #fff4e6;
+  color: #e8590c;
+}
+
+.btn-update:focus {
+  box-shadow: 0 0 0 4px rgba(255, 153, 0, 0.15);
+}
+
+.btn-update:active {
+  background-color: #fff4e6;
+  color: #f76707;
+}
+
+.input {
+  width: 100%;
+  height: 3rem;
+  padding: 0 1rem;
+  padding-left: 3.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f3f3f4;
+  color: #0d0c22;
+  transition: 0.3s ease;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 19rem;
+}
+
+.input::placeholder {
+  color: #9e9ea7;
+}
+
+.input:focus,
+input:hover {
+  outline: none;
+  border-color: rgba(76, 134, 234, 0.4);
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(76, 105, 234, 0.1);
+}
+
+.icon {
+  position: absolute;
+  left: 1rem;
+  color: #9e9ea7;
+  width: 1rem;
+  height: 1.5rem;
+}
+
+.btn-add {
+  border: none;
+  font-family: sans-serif;
+  font-size: 1.6rem;
+  background: transparent;
+  color: #006bb3;
+  border: solid 1px rgba(0, 107, 179, 0.2);
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  transition-duration: 0.2s;
+  cursor: pointer;
+}
+
+.btn-add:before {
+  content: '+';
+  font-size: 2rem;
+  opacity: 0;
+  margin-left: -15px;
+  transition-duration: 0.2s;
+}
+
+.btn-add:hover:before {
+  margin-left: 0px;
+  opacity: 1;
+}
+
+.btn-add:hover {
+  color: black;
+  background: rgba(0, 0, 0, 0.02);
+  border: solid 1px gainsboro;
+}
+
+/* From uiverse.io by @Voxybuns */
+/* The switch - the box around the slider */
+.switch {
+  /* Variables */
+  --switch_width: 2em;
+  --switch_height: 1em;
+  --thumb_color: #e8e8e8;
+  --track_color: #e8e8e8;
+  --track_active_color: #888;
+  --outline_color: #000;
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: var(--switch_width);
+  height: var(--switch_height);
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  box-sizing: border-box;
+  border: 2px solid var(--outline_color);
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--track_color);
+  transition: 0.15s;
+  border-radius: var(--switch_height);
+}
+
+.slider:before {
+  box-sizing: border-box;
+  position: absolute;
+  content: '';
+  height: var(--switch_height);
+  width: var(--switch_height);
+  border: 2px solid var(--outline_color);
+  border-radius: 100%;
+  left: -2px;
+  bottom: -2px;
+  background-color: var(--thumb_color);
+  transform: translateY(-0.2em);
+  box-shadow: 0 0.2em 0 var(--outline_color);
+  transition: 0.15s;
+}
+
+input:checked + .slider {
+  background-color: var(--track_active_color);
+}
+
+input:focus-visible + .slider {
+  box-shadow: 0 0 0 2px var(--track_active_color);
+}
+
+/* Raise thumb when hovered */
+input:hover + .slider:before {
+  transform: translateY(-0.3em);
+  box-shadow: 0 0.3em 0 var(--outline_color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(calc(var(--switch_width) - var(--switch_height)))
+    translateY(-0.2em);
+}
+
+/* Raise thumb when hovered & checked */
+input:hover:checked + .slider:before {
+  transform: translateX(calc(var(--switch_width) - var(--switch_height)))
+    translateY(-0.3em);
+  box-shadow: 0 0.3em 0 var(--outline_color);
+}
+
+select {
+  display: inline-block;
+  margin: 0.2rem;
+  background: white;
+  border: 1px solid #aaaaaa;
+  border-radius: 0.3em;
+  font-family: 'Rubik', Helvetica, Arial, sans-serif;
+  font-size: 0.85em;
+  overflow: hidden;
+  text-shadow: 0 1px 0 white;
+}
+
+select option {
+  text-shadow: none;
+}

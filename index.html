@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <script
+      defer
+      src="https://kit.fontawesome.com/0d3f998bf1.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script defer src="js/services/util.service.js"></script>
+    <script defer src="js/services/storage.service.js"></script>
+    <script defer src="js/services/book.service.js"></script>
+    <script defer src="js/view.controller.js"></script>
+    <script defer src="js/book.controller.js"></script>
+    <title>Book Store</title>
+  </head>
+  <body onload="init()">
+    <div class="page">
+      <h1>🐛 BookWorm backoffice</h1>
+      <div class="options">
+        <section class="inputs-container">
+          <h3>Filter By:</h3>
+          <div class="inputs">
+            <select
+              class="filter-price-select"
+              onchange="onSetFilterBy({price: +this.value})"
+            >
+              <option value="0">Max Price</option>
+              <option value="5">5$</option>
+              <option value="10">10$</option>
+              <option value="15">15$</option>
+              <option value="20">20$</option>
+            </select>
+            <select
+              class="filter-rate-select"
+              onchange="onSetFilterBy({rate: +this.value})"
+            >
+              <option value="0">Min Rate</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+            <div class="search">
+              <i class="icon fa-solid fa-magnifying-glass"></i>
+              <input
+                class="input filter-txt-input"
+                type="text"
+                name="filter-txt"
+                oninput="onSetFilterBy({txt: this.value})"
+                placeholder="Start typing..."
+              />
+            </div>
+          </div>
+        </section>
+        <section class="inputs-container">
+          <h3>Sort By:</h3>
+          <div class="inputs">
+            <select class="sort-by" onchange="onSetSortBy()">
+              <option value="">Select Sorting</option>
+              <option value="title">Title</option>
+              <option value="price">Price</option>
+            </select>
+            <label class="switch">
+              <input
+                class="sort-desc"
+                type="checkbox"
+                oninput="onSetSortBy()"
+              />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </section>
+        <button class="btn-add" onclick="onToggleAddModal()">Add a book</button>
+      </div>
+      <div class="books-container">
+        <table>
+          <thead>
+            <tr>
+              <th class="id">Id</th>
+              <th
+                class="th-sorter title"
+                onclick="onSetSortByClick(this)"
+                data-sort="title"
+              >
+                Title <span></span>
+              </th>
+              <th
+                class="th-sorter price"
+                onclick="onSetSortByClick(this)"
+                data-sort="price"
+              >
+                Price <span></span>
+              </th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody class="books-list"></tbody>
+        </table>
+      </div>
+      <div class="btns-paging">
+        <button onclick="onChangePage(-1)" class="btn btn-prev">
+          <i class="fa-solid fa-circle-arrow-left"></i>
+        </button>
+        <div class="btns-pages"></div>
+        <button onclick="onChangePage(1)" class="btn btn-next">
+          <i class="fa-solid fa-circle-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="modal">
+      <h2>
+        #<span class="book-id">3242 </span>
+        <span class="book-title">Book Name</span>
+      </h2>
+
+      <h4><span class="book-price">55</span>$</h4>
+
+      <div class="desc">
+        <h3>Book Description</h3>
+        <p class="book-desc">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex beatae
+          excepturi, rem nostrum pariatur praesentium at quisquam.
+          Necessitatibus nobis asperiores, debitis aliquid eum minus doloribus
+          repudiandae nesciunt repellat odio reiciendis quis in totam possimus
+          libero illum est architecto. Quo ratione maiores delectus minus totam
+          deleniti deserunt, nemo similique debitis veritatis.
+        </p>
+      </div>
+
+      <div>
+        <h4>Rating:</h4>
+        <div class="rate">
+          <button onclick="onUpdateRate(-1)" class="btn btn-rate">-</button>
+          <span class="book-rate">0</span>
+          <button onclick="onUpdateRate(1)" class="btn btn-rate">+</button>
+        </div>
+      </div>
+
+      <button class="btn btn-close" onclick="onCloseModal()">Close</button>
+    </div>
+
+    <div class="input-modal add-book">
+      <h2>Add Book</h2>
+      <form class="form-modal" onsubmit="onAddBook(event)">
+        <input
+          class="input"
+          type="text"
+          name="title"
+          placeholder="Enter book title"
+        />
+        <input
+          class="input"
+          type="number"
+          name="price"
+          step="0.01"
+          placeholder="Choose price"
+        />
+        <button class="btn">Add</button>
+      </form>
+    </div>
+
+    <div class="input-modal update-book">
+      <h2>Update Book</h2>
+      <form class="form-modal" onsubmit="onUpdateBook(event)">
+        <input class="input" type="text" name="id" readonly />
+        <input
+          class="input"
+          type="number"
+          name="new-price"
+          step="0.01"
+          placeholder="Enter new price"
+        />
+        <button class="btn">Update</button>
+      </form>
+    </div>
+  </body>
+</html>
